@@ -5,14 +5,16 @@ namespace Interfaces
 {
     class Program
     {
+        // the point of this code example is to realize that Interfaces state Methods which must be IMPLEMENTED!
         static void Main(string[] args)
         {
+            // Note the use of the List Data Structure:
             List<Dog> dogs = new List<Dog>();
             dogs.Add(new Dog("Fido"));
             dogs.Add(new Dog("Bob"));
             dogs.Add(new Dog("Adam"));
             dogs.Sort();
-            foreach(Dog dog in dogs)
+            foreach (Dog dog in dogs)
                 Console.WriteLine(dog.Describe());
             Console.ReadKey();
         }
@@ -38,6 +40,7 @@ namespace Interfaces
             this.Name = name;
         }
 
+        // Exercise: Modify the Describe Method to take dogName as a Parameter
         public string Describe()
         {
             return "Hello, I'm a dog and my name is " + this.Name;
@@ -45,7 +48,7 @@ namespace Interfaces
 
         public int CompareTo(object obj)
         {
-            if(obj is IAnimal)
+            if (obj is IAnimal)
                 return this.Name.CompareTo((obj as IAnimal).Name);
             return 0;
         }
